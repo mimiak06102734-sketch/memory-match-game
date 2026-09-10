@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f1ea">
+  <title>MEMORY MATCH</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <section id="startScreen" class="screen start-screen">
+    <div class="brand">
+      <p class="eyebrow">MEMORY CARD GAME</p>
+      <h1>MEMORY<br>MATCH</h1>
+      <p class="lead">1人・CPU・2〜4人で遊べる神経衰弱。モードと難易度を選んですぐ遊べます。</p>
+    </div>
+
+    <div class="start-panel">
+      <p class="section-label">PLAY MODE</p>
+      <div class="mode-grid">
+        <button class="choice-card selected" data-mode="solo" type="button"><span>1P</span><strong>1人プレイ</strong><small>記録に挑戦</small></button>
+        <button class="choice-card" data-mode="cpu" type="button"><span>VS</span><strong>CPU対戦</strong><small>CPUと勝負</small></button>
+        <button class="choice-card" data-mode="2" type="button"><span>2P</span><strong>2人プレイ</strong><small>友達と対戦</small></button>
+        <button class="choice-card" data-mode="3" type="button"><span>3P</span><strong>3人プレイ</strong><small>順番にプレイ</small></button>
+        <button class="choice-card wide" data-mode="4" type="button"><span>4P</span><strong>4人プレイ</strong><small>みんなで対戦</small></button>
+      </div>
+
+      <p class="section-label difficulty-title">DIFFICULTY</p>
+      <div class="difficulty-grid">
+        <button class="difficulty-btn selected" data-level="easy" type="button">EASY<small>16枚 / 8ペア</small></button>
+        <button class="difficulty-btn" data-level="normal" type="button">NORMAL<small>24枚 / 12ペア</small></button>
+        <button class="difficulty-btn" data-level="hard" type="button">HARD<small>32枚 / 16ペア</small></button>
+      </div>
+      <p id="difficultyHint" class="hint">EASY：まずは遊びやすい16枚。</p>
+
+      <button id="startBtn" class="primary-btn" type="button">GAME START</button>
+      <button id="howToBtn" class="text-btn" type="button">遊び方を見る</button>
+    </div>
+  </section>
+
+  <section id="gameScreen" class="screen game-screen hidden">
+    <header class="game-header">
+      <div>
+        <button id="backBtn" class="back-btn" type="button">← MENU</button>
+        <p class="eyebrow">MEMORY MATCH</p>
+        <h2 id="gameTitle">SOLO · EASY</h2>
+      </div>
+      <button id="restartBtn" class="outline-btn" type="button">RESTART</button>
+    </header>
+
+    <div class="info-row">
+      <div class="turn-card"><small>TURN</small><strong id="turnLabel">SOLO PLAY</strong></div>
+      <div class="meta-card"><div><small>TIME</small><strong id="time">00:00</strong></div><div><small>MOVES</small><strong id="moves">0</strong></div></div>
+    </div>
+
+    <div id="scoreArea" class="score-area"></div>
+
+    <section class="board-panel">
+      <p id="statusText" class="status-text">カードを2枚めくって、同じ絵柄を探してね。</p>
+      <div id="gameBoard" class="game-board" aria-label="神経衰弱ゲーム"></div>
+    </section>
+
+    <div class="guide">
+      <p><span>01</span> 自分の番に2枚めくる</p>
+      <p><span>02</span> 同じ絵柄なら1ペア獲得</p>
+      <p><span>03</span> ペアを取れたらもう一度</p>
+    </div>
+  </section>
+</main>
+
+<div id="howToModal" class="modal hidden" aria-hidden="true">
+  <div class="backdrop" data-close></div>
+  <div class="modal-card">
+    <button id="closeHowToBtn" class="close-btn" type="button">×</button>
+    <p class="eyebrow">HOW TO PLAY</p>
+    <h2>遊び方</h2>
+    <ol>
+      <li>自分の番にカードを2枚めくります。</li>
+      <li>同じ絵柄なら1ペア獲得し、もう一度プレイできます。</li>
+      <li>違う絵柄なら次のプレイヤーに交代します。</li>
+      <li>全部そろったら終了。一番ペア数が多い人が勝ちです。</li>
+    </ol>
+    <div class="level-box">EASY：16枚 / NORMAL：24枚 / HARD：32枚</div>
+  </div>
+</div>
+
+<div id="resultModal" class="modal hidden" aria-hidden="true">
+  <div class="backdrop"></div>
+  <div class="modal-card result-card">
+    <p class="eyebrow">GAME RESULT</p>
+    <h2 id="resultTitle">RESULT</h2>
+    <p id="resultMessage"></p>
+    <div id="resultScores" class="result-scores"></div>
+    <button id="playAgainBtn" class="primary-btn" type="button">PLAY AGAIN</button>
+    <button id="menuBtn" class="outline-btn full" type="button">MENU</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

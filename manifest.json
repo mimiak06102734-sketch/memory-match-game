@@ -1,0 +1,25 @@
+{
+  "name": "Memory Match",
+  "short_name": "Memory Match",
+  "description": "1人・CPU・2〜4人で遊べるスマホ向け神経衰弱ゲーム",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F4F1EA",
+  "theme_color": "#F4F1EA",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
